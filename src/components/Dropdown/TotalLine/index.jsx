@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addCountryAction } from '../../store/reducers/addDataReducer'
-import { countryClickAction } from '../../store/reducers/countryClickReducer'
+import { addCountryAction } from '../../../store/reducers/addDataReducer'
+import { countryClickAction } from '../../../store/reducers/countryClickReducer'
 
 function TotalLine({ country, count }) {
 	const dispatch = useDispatch()

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { cityinInputAction } from '../../store/reducers/cityClickReducer'
+import { cityinInputAction } from '../../../store/reducers/cityClickReducer'
 
 function Line({ name, count, link }) {
 	const dispatch = useDispatch()

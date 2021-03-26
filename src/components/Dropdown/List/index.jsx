@@ -1,5 +1,5 @@
 import React from 'react'
-import CountryBlock from './CountryBlock'
+import CountryBlock from '../CountryBlock'
 
 function List({ data }) {
 	return (

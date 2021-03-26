@@ -5,7 +5,6 @@ export const useInput = (val = '') => {
 
 	return {
 		value,
-		handler: (e) => setValue(e.target.value),
-		setValue: (val) => setValue(val),
+		handler: (arg) => setValue(arg.target ? arg.target.value : arg),
 	}
 }

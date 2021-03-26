@@ -1,13 +1,13 @@
 import React from 'react'
 import CloseButton from './CloseButton'
 import FocusBorder from './FocusBorder'
-import { Input } from '../input'
+import Input from '../Input'
 
-function InputBlock({ closeButtonHandler, isShowCloseButton, ...props }) {
+function InputBlock({ clearInput, isShowCloseButton, ...props }) {
 	return (
 		<>
 			<Input {...{ placeholder: 'Страна или город', ...props }} />
-			{isShowCloseButton && <CloseButton onClickfn={closeButtonHandler} />}
+			{isShowCloseButton && <CloseButton onClickfn={clearInput} />}
 			<FocusBorder />
 		</>
 	)

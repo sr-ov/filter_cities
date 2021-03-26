@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Button } from './components/button'
-import { Dropdown } from './components/dropdown'
-import { InputBlock } from './components/inputBlock'
-import { Modal } from './components/modal'
+import Button from './components/Button'
+import Dropdown from './components/Dropdown'
+import InputBlock from './components/InputBlock'
+import Modal from './components/Modal'
 import { useDebounce } from './customHooks/useDebounce'
 import { useInput } from './customHooks/useInput'
 import { useOnClickOutside } from './customHooks/useOnClickOutside'
@@ -17,7 +17,7 @@ function App() {
 	const [isOpenDropdown, setOpenDropdown] = useState(false)
 	const [isOpenModal, setOpenModal] = useState(false)
 	const { value: inputInModalValue, handler: inputInModalHandler } = useInput()
-	const { value, handler, setValue } = useInput()
+	const { value, handler } = useInput()
 	const { cityСlick, cityInInput } = useSelector(({ cityClickReducer }) => cityClickReducer)
 
 	const valueDebounce = useDebounce(value, 800)
@@ -39,18 +39,12 @@ function App() {
 	const open = () => setOpenDropdown(true)
 	const close = () => setOpenDropdown(false)
 
-	const inputHandler = (e) => {
-		if (cityСlick) {
-			dispatch(cancelCityClickAction())
-		}
-		handler(e)
-	}
+	const inputHandler = (val) => {
+		handler(val)
 
-	const closeButtonHandler = () => {
 		if (cityСlick) {
 			dispatch(cancelCityClickAction())
 		}
-		setValue('')
 	}
 
 	return (
@@ -61,10 +55,10 @@ function App() {
 						open,
 						cityСlick,
 						cityInInput,
-						closeButtonHandler,
+						clearInput: () => inputHandler(''),
 						isShowCloseButton: value || cityСlick,
 						value: cityСlick ? cityInInput : value,
-						handler: inputHandler,
+						handler: (e) => inputHandler(e),
 					}}
 				/>
 

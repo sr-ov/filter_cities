@@ -1,6 +1,6 @@
 import React from 'react'
-import Line from './Line'
-import TotalLine from './TotalLine'
+import Line from '../Line'
+import TotalLine from '../TotalLine'
 
 function CountryBlock({ country, count, cities }) {
 	return (
